@@ -11,6 +11,9 @@ export class UsersService {
     user.id = uuid();
     user.password = hashSync(user.password, 10);
     this.users.push(user);
-    console.log(this.users);
+  }
+
+  findByUsername(username: string): UserDto | null {
+    return this.users.find((user) => user.username === username);
   }
 }
